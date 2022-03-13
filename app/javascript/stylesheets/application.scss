@@ -1,0 +1,15 @@
+@import '~bootstrap/scss/bootstrap';
+
+body {
+  padding-top:54px;
+}
+
+.jumbotron {
+  background-image: url("../images/photo1.jpg");
+  background-size: cover;
+  background-position: center 60%;
+}
+
+.display-1{
+  font-family:Tangerine
+}

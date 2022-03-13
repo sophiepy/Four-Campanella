@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+　　<!--下記1行bootsrapのため変更-->
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column m-3"><!--上から縦並び -->
+    <%= render 'layouts/header' %>
+    <main>
+      <p class="notice"><%= flash[:notice] %></p>
     <%= yield %>
+    </main>
+
+　　<footer>
+  　  <div id="footer" class="fixed-bottom bg-dark text-light text-center" style="height:50px;">
+  　    <P>©2022 HOSHIGAKI-KOBO All Rights Reserved</P>
+     </div>
+    </footer>
+
   </body>
 </html>

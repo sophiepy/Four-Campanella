@@ -1,0 +1,85 @@
+<header class="sticky-top">
+  <nav class="navbar navbar-expand-lg bg-dark p-3">
+  <!--レスポンシブデザイン変更タイミング(lg) -->
+    <div class="container">
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <!--<li class="navbar-nav">-->
+          <%#= link_to root_path do %>
+            <%#= image_tag 'ヘッダーロゴ.jpg', size: "70x70" %>
+          <!--<#% end %>-->
+        <!--</li>-->
+        <form class="search">
+          <input type="text", class="search_input">
+          <button>検索</button>
+        </form>
+  <ul class="navbar-nav ml-auto">
+
+  <!--<#% if customer_signed_in? %>-->
+    <!--<li class="customer-name text-light">-->
+      <!--ようこそ、<#%= current_customer.first_name %>さん！-->
+    <!--</li>-->
+
+    <!--<li>-->
+      <%#= link_to users_my_page_path, class: 'nav-link text-light border border-light rounded' do %>
+        <!--マイページ-->
+      <!--<#% end %>-->
+    <!--</li>-->
+
+    <!--<li>-->
+      <%#= link_to items_path, class: 'nav-link text-light border border-light rounded' do %>
+        <!--商品一覧-->
+      <!--<#% end %>-->
+    <!--</li>-->
+
+    <!--<li>-->
+      <!--<#%= link_to cart_items_path, class: 'nav-link text-light border border-light rounded' do %>-->
+        <!--カート-->
+      <!--<#% end %>-->
+    <!--</li>-->
+
+    <li>
+      <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light border border-light rounded' do %>
+        ログアウト
+      <% end %>
+    </li>
+
+
+
+
+
+
+
+
+
+
+
+    <li>
+      <%= link_to home_about_path, class: 'nav-link text-light border border-light rounded' do %>
+        About
+      <% end %>
+    </li>
+
+    <li>
+      <%= link_to items_path, class: 'nav-link text-light border border-light rounded' do %>
+        商品一覧
+      <% end %>
+    </li>
+
+    <li>
+      <%= link_to new_user_registration_path, class: 'nav-link text-light border border-light rounded' do %>
+        会員登録
+      <% end %>
+    </li>
+
+    <li>
+      <%= link_to new_user_session_path, class: 'nav-link text-light border border-light rounded' do %>
+        ログイン
+      <% end %>
+    </li>
+
+  </ul>
+
+  </div>
+  </div>
+  </nav>
+</header>
