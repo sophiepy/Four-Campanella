@@ -8,7 +8,9 @@ gem 'rails', '~> 6.1.4'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
+# gem 'puma', '~> 5.0'
+# 3/19pumaテストデプロイのため、ベージョン変更。5->3.11
+gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -70,7 +72,11 @@ gem 'rails-i18n'
 gem 'devise-i18n'
 # 3/14画像のリサイズのため下記表記
 gem 'image_processing'
-# 3/17問い合わせ機能追加のため環境変数の設定
-gem "dotenv-rails"
 # 3/18シンプルカレンダー導入のため追記
 gem "simple_calendar", "~> 2.0"
+# 3/17問い合わせ機能追加のため環境変数の設定
+gem "dotenv-rails"
+# 3/19テストデプロイのため下記３行追記
+group :production do
+  gem 'mysql2'
+end
