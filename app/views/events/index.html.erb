@@ -1,0 +1,11 @@
+<h1>EVENT</h1>
+<%= month_calendar events: @events do |date, events| %>
+　<%= date.day %>
+　　<% events.each do |event| %><br />
+　　　<%= event.start_time.strftime('%H:%M') %>　#スケジュールの開始時間を表示
+　　　<%= link_to event.content,event_path(event) %>
+　　<% end %>
+　<% end %>
+
+
+<%= link_to 'イベント追加', new_event_path %>

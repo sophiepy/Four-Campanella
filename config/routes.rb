@@ -13,13 +13,17 @@ Rails.application.routes.draw do
   #homesコントローラ
   root :to =>"homes#top", as: "root"
   get "home/about"=>"homes#about"
+  get "home/info" =>"homes#info"
   #usersコントローラ
   get 'users/show'
   get "users/unsubscribe" => "users#unsubscribe", as: "unsubscribe"
   patch "users/withdraw" => "users#withdraw", as: "withdraw"
   #上の2行は下のresourcesより上に記述する必要がある
   get 'users/my_page' => 'users#show'
-  patch 'users/edit' => 'users#update'
+  # resources :users, only: [:edit, :update]
+  get 'users/edit' => 'users#edit'
+  patch 'users/update'
+
   # 検索機能
   get "search/search" => "searches#search"
   resources :items, only: [:new,:index,:show,:edit,:create,:destroy,:update]do
@@ -27,8 +31,18 @@ Rails.application.routes.draw do
   end
     #favoritesはresourceにsがつかない
     #ordersコントローラ
+  post "orders/check" => "orders#check", as: "check"
   get "orders/complete" => "orders#complete", as: "complete"
-  resources :orders, only: [:new,:create,:index,:show]
+  resources :orders, only: [:new, :create, :index, :show]
+
+  resources :contacts, only: [:new, :create]
+  post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
+  post 'contacts/back', to: 'contacts#back', as: 'back'
+  get 'done', to: 'contacts#done', as: 'done'
+
+  get 'events/index'
+  resources :events, only: [:new, :index, :create, :show, :edit, :destroy, :upddate]
+
 
   devise_for :users,skip: [:passwords], controllers: {
     registrations: "users/registrations",

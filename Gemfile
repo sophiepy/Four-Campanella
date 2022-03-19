@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+#gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -68,4 +68,9 @@ gem 'pry-byebug', group: :development
 #日本語表記のため下記1行追記
 gem 'rails-i18n'
 gem 'devise-i18n'
-
+# 3/14画像のリサイズのため下記表記
+gem 'image_processing'
+# 3/17問い合わせ機能追加のため環境変数の設定
+gem "dotenv-rails"
+# 3/18シンプルカレンダー導入のため追記
+gem "simple_calendar", "~> 2.0"

@@ -1,8 +1,8 @@
 <div class="container">
-  <% if @customer.errors.any? %>
-  <%= @customer.errors.count %>件のエラーが発生しました
+  <% if @user.errors.any? %>
+  <%= @user.errors.count %>件のエラーが発生しました
   <ul>
-    <% @customer.errors.full_messages.each do |message| %>
+    <% @user.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end %>
   </ul>
@@ -12,17 +12,17 @@
     <h2>会員情報編集</h2>
   </div>
 
-  <%= form_with model: @customer, url: customers_path, method: :patch do |f| %>
+  <%= form_with model: @user, url: users_update_path, method: :patch do |f| %>
   <div class="row">
     <table>
       <tr>
         <th>名前</th>
         <td>
-        　<span>(姓) </span>
+        <span>(姓)</span>
         </td>
         <td>
         　<%= f.text_field :first_name %>
-          <span>　(名)　</span>
+        <span>(名)</span>
           <%= f.text_field :last_name %>
         </td>
       </tr>

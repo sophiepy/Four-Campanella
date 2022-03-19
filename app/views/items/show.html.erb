@@ -1,0 +1,36 @@
+<div class = "container">
+  <div class = "row my-5">
+    <div class = "col-4">
+      <h3>商品詳細</h3>
+    </div>
+  </div>
+  <div class = "row justify-content-center">
+    <!--<#%= render "public/genres/sidebar", genres: @genres %>-->
+    <div class = "col-4 my-3">
+      <!--<#%= image_tag @item.get_item_image("350x350") %>-->
+      <%#= @item.inspect %>
+      <%= image_tag @item.get_item_image("350x350") %>
+    </div>
+    <div class = "col-4">
+      <div class = "card my-3">
+        <div class = "card-header">
+          <h3><%= @item.name %></h3>
+        </div>
+        <div class = "card-body my-3">
+          <h5 class = "card-title">
+            <%= @item.introduction %>
+          </h5>
+          <div class = "card-price my-3">
+            ¥<%= @item.price %><small>(送料税込価格)</small>
+          </div>
+          <% if user_signed_in? %>
+            <%= form_with model:@item, local:true do |f| %>
+              <%= f.select :quantity, [["1", 1]] %>
+              <%= f.hidden_field :item_id, value: params[:id] %>
+              <%= f.submit "注文情報入力へ進む", new_order_path, class: 'btn btn-success' %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
