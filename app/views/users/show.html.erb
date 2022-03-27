@@ -1,46 +1,44 @@
 <div class="container">
-    <div class="row">
-      <h4>マイページ</h4>
-    </div>
-
-    <div class="row">
-      <h5>登録情報</h5>
-        <%= link_to "編集する", users_edit_path, class: 'btn btn-info'%>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-9">
-        <table class="table table-bordered">
-            <tr>
-              <th class="col-lg-2 active">氏名</th>
-              <td><%= @user.first_name %> <%= @user.last_name %></td>
-            </tr>
-            <tr>
-              <th class="col-lg-2 active">カナ</th>
-              <td><%= @user.first_name_kana %> <%= @user.last_name_kana %></td>
-            </tr>
-            <tr>
-              <th class="col-lg-2 active">郵便番号</th>
-              <td><%= @user.zip_code %></td>
-            </tr>
-            <tr>
-              <th class="col-lg-2 active">住所</th>
-              <td><%= @user.address %></td>
-            </tr>
-            <tr>
-              <th class="col-lg-2 active">電話番号</th>
-              <td><%= @user.tel %></td>
-            </tr>
-            <tr>
-              <th class="col-lg-2 active">メールアドレス</th>
-              <td><%= @user.email %></td>
-            </tr>
-        </table>
+    <div class="row" >
+      <div class="col-10 mx-auto py-5">
+        <h2>マイページ</h2>
+    <!--<div class="row">-->
+          <h3>登録情報</h3>
+            <%= link_to "編集する", users_edit_path, class: 'btn btn-info'%>
+            <%= link_to "注文履歴一覧を見る", orders_path, class: 'btn btn-info' %>
+            <!--<div class="mx-auto py-3">-->
+              <!--<div class="col-lg-9">-->
+                <table class="table table-bordered">
+              <tr>
+                <th class="col-lg-2 active">氏名</th>
+                <td><%= @user.first_name %> <%= @user.last_name %></td>
+              </tr>
+              <tr>
+                <th class="col-lg-2 active">カナ</th>
+                <td><%= @user.first_name_kana %> <%= @user.last_name_kana %></td>
+              </tr>
+              <tr>
+                <th class="col-lg-2 active">郵便番号</th>
+                <td><%= @user.zip_code %></td>
+              </tr>
+              <tr>
+                <th class="col-lg-2 active">住所</th>
+                <td><%= @user.address %></td>
+              </tr>
+              <tr>
+                <th class="col-lg-2 active">電話番号</th>
+                <td><%= @user.tel %></td>
+              </tr>
+              <tr>
+                <th class="col-lg-2 active">メールアドレス</th>
+                <td><%= @user.email %></td>
+              </tr>
+          </table>
+        </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="col-lg-3">
-      <%= link_to "注文履歴一覧を見る", orders_path, class: 'btn btn-info' %>
-    </div>
+      <div class="row">
+        <div class="col-lg-3">
+
+      </div>
 </div>

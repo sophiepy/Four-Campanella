@@ -1,0 +1,55 @@
+<div class="container">
+  <div class= "row">
+    <div class= "col-md-6 py-4">
+    <div class="pull-left">
+      <%= image_tag 'school.jpg', size: "550x800" %>
+    </div>
+    </div>
+
+
+  <!--<div class= "row">-->
+    <div class= "col-md-6 p-5">
+      <div class= "pull-right">
+        <h2>親子フラワー教室のご案内 </h2>
+        <div class= "col-md-12 my-4">
+        <p>日時5月5日(木・祝) 14時〜15時半<br>
+          親 1人      大人　1,500円(税・お花代込み）<br>
+          お子様 １人 子供 1,000円税・お花代込み）<br>
+          開催場所 NHK文化センター京都教室<br>
+          コロナ対策のため、マスクをご持参ください。
+          個人経営のため、繁忙期以外で年に8回開催しております。<br>
+          準備のため3日前まで（５月２日17時まで）にお申し込み可能です。<br>
+          3日前以降のキャンセルは基本的にご遠慮ください。<br>
+          (※キャンセル料・お花代のみ1人500円頂戴します）<br>
+          お申し込みはこちら
+      <!--3/23()内のresource_nameを外す。-->
+          <%= link_to "contactus", new_contact_path(), class: "btn btn-sm btn-outline-success" %>
+          <!--3/26管理者権限のあるユーザーであれば下記を見せます-->
+          <% if user_signed_in? %>
+            <% if current_user == @user || current_user.admin? %>
+              <%= link_to "イベント編集", edit_event_path(@event.id), class: "btn btn-sm btn-outline-success" %></p>
+            <% end %>
+          <% end %>
+
+        </div>
+         <section id= "location">
+          <div class= "wrapper">
+            <div class= "location-info">
+              <h3 class= "sub-title">NHK文化センター京都教室</h3>
+              <h5>(実際は開催されておりません）</h5>
+              <p>
+                〒600-8006 京都府京都市下京区 四条通柳馬場西入立売中之町99<br>
+              </p>
+            </div>
+              <div class= "location-map" >
+                <p>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3268.130418654111!2d135.76143321518467!3d35.00344027445164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6001089718bf34fd%3A0xed573e03711299eb!2zTkhL5paH5YyW44K744Oz44K_44O8IOS6rOmDveaVmeWupA!5e0!3m2!1sja!2sjp!4v1648257307728!5m2!1sja!2sjp" width="500" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+        </section>
+
+      </div>
+    </div>
+
+  </div>
+</div>

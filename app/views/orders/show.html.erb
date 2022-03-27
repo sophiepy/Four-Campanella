@@ -1,0 +1,55 @@
+<div class="container">
+	<div class = "row">
+      <div class="mx-auto py-5">
+		<h4>注文履歴詳細</h4><br>
+			<h4>注文情報</h4>
+				<div class="row">
+					<div class="col-md-10">
+						<table align="left" class="table table-bordered">
+							<tr>
+								<td>注文日</th>
+								<td><%= l @order.created_at, format: :short %></td>
+							</tr>
+							<tr>
+								<td>送付先</td>
+								<td>〒<%= @order.user.zip_code %><br><%= @order.user.address %><br><%= @order.user.first_name %><%= @order.user.last_name %>様</td>
+							</tr>
+							<tr>
+								<td>支払方法</td>
+								<td><%= @order.payment_method_i18n%></td>
+							</tr>
+						</table>
+					</div>
+					<div class="col-md-12">
+
+					<h4>注文内容</h4>
+						<table class="table table-bordered">
+							<tr>
+								<th>商品</th>
+								<th>個数</th>
+								<th>商品金額</th>
+							</tr>
+							<!--<#% @order.items.each do |item| %>-->
+							<tr>
+								<td><%= @order.item.name %></td>
+								<td>1個</td>
+								<!--<td><%#= @order.quantity %></td>-->
+								<td><%= @order.item.price %>円（送料税込）
+								</td>
+							</tr>
+							<!--<#% end %>-->
+						</table>
+					</div>
+			<div class="col-md-12">
+				  <h4>請求情報</h4>
+				  <table class="table table-bordered">
+				  	  <tr>
+						<td>ご請求額</td>
+						<th><%= @order.item.price %>円</th>
+						</tr>
+				  </table>
+		     </div>
+		     </div>
+		</div>
+		</div>
+		</div>

@@ -5,11 +5,13 @@ ActiveAdmin.register Item do
     selectable_column
     id_column
     column :item_image do |topic|
-    image_tag(topic.item_image)
+    image_tag(topic.item_image,size: "60x60")
+    # image_tag(topic.item_image, size: "100x100" )
     end
     column :name
     column :introduction
     column :price
+    column :is_active
     column :created_at
     column :updated_at
     actions
@@ -25,6 +27,7 @@ ActiveAdmin.register Item do
       row :name
       row :introduction
       row :price
+      row :is_active
       row :created_at
       row :updated_at
     end

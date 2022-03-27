@@ -2,43 +2,69 @@
 <div class = "container">
   <div class = "row my-5">
     <div class = "col-4">
-      <h3>商品一覧<small><%= "(全#{@all_items_count}件)" %></small></h3>
+      <h4>商品一覧<small><%= "(全#{@all_items_count}件)" %></small></h4>
     </div>
   </div>
   <div class = "row">
-      <div class="col-10">
-        <div class="row">
-          <% @items_page.each do |item| %>
-            <div class = "col-4">
-              <div class = "card w-20 my-2">
-                <%= link_to item_path(item) do %>
-                  <%= image_tag item.get_item_image("300x200"),size: "300x200", class: "card-img-top" %>
-                <% end %>
-                <div class = "card-body">
-                  <div class = "row">
-                    <%= item.name %>
-                  </div>
-                  <div class = "row">
-                  <%= item.price %>円<br>
-                  <!--ここからいいね機能追記-->
-                  <div class = "row">
+    <div class="col-12" style="bottom: 50px;">
+      <div class="row">
+        <% @items_page.each do |item| %>
+          <div class = "col-4">
+            <div class = "card w-20 my-2">
+              <%= link_to item_path(item) do %>
+                <%= image_tag item.get_item_image("300x300"),size: "300x300", class: "card-img-top" %>
+              <% end %>
+              <div class = "card-body">
+                <div class = "row">
+                  <%= item.name %>
+                </div>
+                <div class = "row">
+                <%= item.price %>円
+                <!--ここからいいね機能追記-->
+                   <!--<div class = "row">-->
                   <% if item.favorited_by?(current_user) %>
                   <%= link_to item_favorites_path(item), method: :delete do %>
                   <span class= "heart" >♥<%= item.favorites.count %> </span>
                   <% end %>
                   <% else %>
                   <%= link_to item_favorites_path(item), method: :post do %>
-                  ♥<%= item.favorites.count %>
+                  <%= item.favorites.count %>♥
                   <% end %>
                   <% end %>
-                  </div>
-                  </div>
+                <!--</div>-->
                 </div>
               </div>
             </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
+
       </div>
+      <%= paginate @items_page %>
+      <!--<nav aria-label="Page navigation example">-->
+      <!--   <ul class="pagination">-->
+      <!--    <li class="page-item">-->
+      <!--    <a class="page-link" href="#!" aria-label="Previous">-->
+      <!--      <span aria-hidden="true">«</span>-->
+      <!--      <span class="sr-only">Previous</span>-->
+      <!--    </a>-->
+      <!--    </li>-->
+      <!--    <li class="page-item"><a class="page-link" href="#!">1</a></li>-->
+      <!--    <li class="page-item"><a class="page-link" href="#!">2</a></li>-->
+      <!--    <li class="page-item"><a class="page-link" href="#!">3</a></li>-->
+      <!--    <li class="page-item">-->
+      <!--    <a class="page-link" href="#!" aria-label="Next">-->
+      <!--      <span aria-hidden="true">»</span>-->
+      <!--      <span class="sr-only">Next</span>-->
+      <!--    </a>-->
+      <!--    </li>-->
+      <!--  </ul>-->
+      <!--</nav>-->
+
     </div>
-  <%= paginate @items_page %>
+  </div>
+
+
+
+    <%#= @items_page.inspect %>
+  <%#= paginate @items_page %>
 </div>

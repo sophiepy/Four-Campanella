@@ -1,13 +1,28 @@
-<div class="container">
-  <div class="text-center">
-    <h1>Four </h1>
-    <h1>Campanellas</h1>
-    Aboutus<br>
-    <p>2020年に誕生したハンドメイドのドライフラワーショップです。<br>
-    繊細なドライフラワーを確実な梱包にて全国に配送致します。<br>
-    1点１点手作りで、大量生産はできません。<br>
-    よって１点ずつのご提供となりますことを予めご了承ください<br>
-    受注オーダーも個別に承ります。contactus</p>
-  </div>
+<div class="container-fluid">
+  <div class= "row" >
+    <div class="mx-auto py-2">
+      <%= image_tag 'logo.jpg', size: "400x400" %>
+      <%#= image_tag 'mimoza.jpg', size: "250x250" %>
+      </div>
+      </div>
+      </div>
+      <!--<h1>Four </h1>-->
+      <!--<h1>Campanellas</h1>-->
+      <div class "row">
+      <div class= "mx-auto text-center">
+      <h4>Aboutus</h4><br>
+      <p>2020年に誕生したハンドメイドのドライフラワーショップFour Campanellas(フォー　カンパネラス）です。名前の由来は次のコンセプトが関係しています。</p>
+      <p>concept1. 四季の花々を1年中楽しんでほしい。（Four)</p>
+      <p>concept2. クリエイターの作品であるスワッグを多くの人に楽しんで欲しい。スワッグが鐘の形に似ている。（Campanellas)</p>
+      <p>consept3. エイジングが魅力のドライフラワー。超絶技巧曲と言われるリストのla campanella(ラ・カンパネラ)という曲の</p>
+      <p>もの哀しさがドライフラワーの美しさと変化していく趣がある様とシンクロします。</p>
+      <strong><h5>◇◇◇商品特性とご理解いただきたいこと◇◇◇</h5></strong>
+      <p>繊細なドライフラワーを確実な梱包にて全国に配送致します。</p>
+      <p>1点１点手作りのため、大量生産はできません。</p>
+      <p>よって１点ずつのご提供となりますことを予めご了承ください。</p>
+      <p>受注オーダーも個別に承ります。<%= link_to "contactus", new_contact_path(), class: "btn btn-sm btn-outline-info" %></p>
 
+
+    </div>
+  </div>
 </div>

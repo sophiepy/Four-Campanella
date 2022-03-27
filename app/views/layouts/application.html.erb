@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FourCampanellas</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Four Campanellas</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,15 +11,17 @@
   </head>
   <body class="d-flex flex-column m-3"><!--上から縦並び -->
     <%= render 'layouts/header' %>
-    <%= render 'layouts/search' %>
+    <%#= render 'layouts/search' %>
     <main>
-      <p class="notice"><%= flash[:notice] %></p>
+      <% unless flash[:notice] == nil %>
+        <p class="notice"><%= flash[:notice] %></p>
+      <% end %>
     <%= yield %>
     </main>
 
     <footer>
-     <div id="footer" class="fixed-bottom bg-dark text-light text-center" style="height:50px;">
-       <P>©2022 Four Campanellas All Rights Reserved</P>
+     <div id="footer" class="fixed-bottom bg-dark text-light text-center" style="height:60px;">
+       <P>©2020 Four Campanellas</P>
      </div>
     </footer>
 

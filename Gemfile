@@ -76,6 +76,8 @@ gem 'image_processing'
 gem "simple_calendar", "~> 2.0"
 # 3/17問い合わせ機能追加のため環境変数の設定
 gem "dotenv-rails"
+#3/22注文支払い実装のため追記
+gem "enum_help"
 # 3/19テストデプロイのため下記３行追記
 group :production do
   gem 'mysql2'

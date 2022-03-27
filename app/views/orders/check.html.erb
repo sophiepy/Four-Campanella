@@ -1,60 +1,56 @@
  <div class = "container">
-   <div class = "row my-3">
-     <div class = "col-4 text-center">
+   <div class = "row">
+     <div class = "col-4 py-4 text-center">
        <h3>注文情報確認</h3>
      </div>
    </div>
    <div class = "row">
-     <div class = "col-md-6">
+     <div class = "col-lg-12">
        <table class = "table table-bordered">
          <thead class = "thead-light">
            <tr>
              <th>商品名</th>
-             <th>単価(税込)</th>
              <th>数量</th>
-             <th>小計</th>
+             <th>単価(送料税込)</th>
            </tr>
          </thead>
          <tbody>
            <% @items.each do |item| %>
            <tr>
-             <td><%= image_tag .item.get_item_image("100x100") %><%= cart_item.item.name %></td>
-             <td><%= cart_item.item.with_tax_price %></td>
-             <td><%= cart_item.quantity %></td>
-             <td><%= (cart_item.item.with_tax_price*cart_item.quantity) %></td>
+             <td><%#= item.inspect %><%= image_tag item.get_item_image("100x100") %><%= item.name %></td>
+             <td><%= @order.quantity %>1個</td>
+             <td><%= item.price %>円</td>
            </tr>
            <% end %>
          </tbody>
        </table>
      </div>
-     <div class ="col-md-4">
-       <table class = "table table-bordered">
-         <tr>
-           <th>送料</th>
-           <td><%= @postage %>  </td>
-         </tr>
-         <tr>
-           <th>商品合計</th>
-           <td><%= @total %></td>
-         </tr>
-         <tr>
-           <th>請求金額</th>
-           <td><%= @total_amount %></td>
-         </tr>
-       </table>
-     </div>
-    </div>
+
+  </div>
     <div class = "row">
-      <div class = "col-md-4">
+      <div class = "col-md-10">
        <table class = "table table-borderless">
          <tr>
            <th>支払方法</th>
-           <td><%= @order.payment_i18n %></td>
+           <td><%= @order.payment_method_i18n %></td>
+           <!--<td><%#= @order.payment_method_i18n %></td>-->
          </tr>
          <tr>
            <th>お届け先</th>
+           <!--<td>〒<%#= @order.zip_code, @order.address, %><br><%#= @order.name %></td>-->
            <td><%= "〒#{@order.zip_code} #{@order.address}" %><br><%= "#{@order.name}" %></td>
          </tr>
+         <tr>
+           <th>ラッピングの有無</th>
+              <% if @order.wrapping %>
+                <td>有</td>
+              <% else %>
+                <td>無</td>
+              <% end %>
+              <%# @order.wrapping == false %> = <%# !@order.wrapping %>
+           <!--<td><%#= @order.payment_method_i18n %></td>-->
+         </tr>
+         <tr>
        </table>
      </div>
     </div>
@@ -63,12 +59,12 @@
         <%= f.hidden_field :address,value: @order.address %>
 		    <%= f.hidden_field :zip_code,value: @order.zip_code %>
 		    <%= f.hidden_field :name,value: @order.name %>
-        <%= f.hidden_field :payment,value: @order.payment %>
-        <%= f.hidden_field :total_amount,value: @order.total_amount %>
-        <%= f.hidden_field :order_status,value: @order.order_status, checked: "入金待ち" %>
+        <%= f.hidden_field :payment_method,value: @order.payment_method %>
+        <%= f.hidden_field :quantity,value: @order.quantity %>
+        <%= f.hidden_field :total_price,value: @order.total_price %>
+        <%= f.hidden_field :item_id,value: @order.item_id %>
+        <%#= f.hidden_field :order_status,value: @order.order_status, checked: "入金待ち" %>
         <%= f.submit "注文を確定する", class: "btn btn-success" %>
       <% end %>
     </div>
  </div>
-
-

@@ -3,6 +3,8 @@ class ItemsController < ApplicationController
   def index
     @all_items_count = Item.where(is_active: true).count
     @items_page = Item.where(is_active: true).page(params[:page]).per(9)
+    #byebug
+    # @items_page = Item.where(is_active: true).page(params[:page]).per(9)
   end
   def show
     @item = Item.find(params[:id])

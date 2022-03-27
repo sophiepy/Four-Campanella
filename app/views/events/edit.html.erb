@@ -1,0 +1,35 @@
+<div class="container">
+  <div class= "row" >
+    <div class="mx-auto col-6 py-5">
+
+      <h1>EVENT内容</h1>
+
+      <%= form_with(model: @event, local: true) do |form| %>
+
+        <div class="title">
+          <%= form.label :title %>
+          <%= form.text_field :title %>
+        </div>
+
+        <div class="time">
+          <%= form.label :start_time %>
+          <%= form.datetime_select :start_time %>
+        </div>
+
+        <div class="content">
+          <%= form.label :content %>
+          <%= form.text_field :content %>
+        </div>
+
+        <div>
+          <%= form.submit '保存', class: "btn btn-sm btn-success edit_event" %>
+        </div>
+      <% end %>
+
+        <div class= "btn">
+        <%#= link_to '保存', events_index_path(@event.id), class: "btn btn-sm btn-success edit_event" %>
+        <%= link_to '削除', @event, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_event_#{@event.id}" %>
+        </div>
+    </div>
+  </div>
+</div>

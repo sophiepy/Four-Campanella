@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   #homesコントローラ
   root :to =>"homes#top", as: "root"
   get "home/about"=>"homes#about"
-  get "home/info" =>"homes#info"
+  #get "home/info/" =>"homes#info"
+  resources :infos
+
   #usersコントローラ
   get 'users/show'
   get "users/unsubscribe" => "users#unsubscribe", as: "unsubscribe"
@@ -32,6 +34,8 @@ Rails.application.routes.draw do
     #favoritesはresourceにsがつかない
     #ordersコントローラ
   post "orders/check" => "orders#check", as: "check"
+  post "orders/new" => "orders#new"
+  get "orders/confirm_wrapping" => "orders#confirm_wrapping", as: "confirm_wrapping"
   get "orders/complete" => "orders#complete", as: "complete"
   resources :orders, only: [:new, :create, :index, :show]
 
@@ -41,7 +45,7 @@ Rails.application.routes.draw do
   get 'done', to: 'contacts#done', as: 'done'
 
   get 'events/index'
-  resources :events, only: [:new, :index, :create, :show, :edit, :destroy, :upddate]
+  resources :events, only: [:new, :index, :create, :show, :edit, :destroy, :update]
 
 
   devise_for :users,skip: [:passwords], controllers: {
