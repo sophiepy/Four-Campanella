@@ -32,7 +32,12 @@
                 </td>
                 <td><%= order.quantity %>1個</td>
                 <td><%= order.item.price %>円</td>
-                <td><%= order.wrapping %></td>
+                    <% if order.wrapping %>
+                    <td>有</td>
+                     <% else %>
+                    <td>無</td>
+                     <% end %>
+                <!--<td><%#= order.wrapping %></td>-->
                 <td><%= link_to "表示する", order_path(order) %></td>
             </tr>
         <% end %>

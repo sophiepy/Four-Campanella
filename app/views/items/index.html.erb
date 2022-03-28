@@ -6,11 +6,12 @@
     </div>
   </div>
   <div class = "row">
-    <div class="col-12" style="bottom: 50px;">
+    <div class="col-md-12" style="bottom: 50px;">
       <div class="row">
         <% @items_page.each do |item| %>
-          <div class = "col-4">
+          <div class = "col-md-4 col-sm-10">
             <div class = "card w-20 my-2">
+              <div class = "shadow-lg">
               <%= link_to item_path(item) do %>
                 <%= image_tag item.get_item_image("300x300"),size: "300x300", class: "card-img-top" %>
               <% end %>
@@ -33,6 +34,7 @@
                   <% end %>
                 <!--</div>-->
                 </div>
+              </div>
               </div>
             </div>
           </div>
