@@ -57,4 +57,16 @@ ActiveAdmin.register Item do
   #   end
   # end
   #ここまで
+  # 4/6画像認識のため下記7行追記
+  controller do
+    def create
+      super
+      item = Item.last
+      tags = Vision.get_image_data(item.item_image)
+      tags.each do |tag|
+        item.tags.create(name: tag)
+      end
+
+    end
+  end
 end

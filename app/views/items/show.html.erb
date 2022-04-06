@@ -10,7 +10,14 @@
       <!--<#%= image_tag @item.get_item_image("350x350") %>-->
       <%#= @item.inspect %>
       <%= image_tag @item.get_item_image("350x350") %>
+      <!--4/6画像認識のため、下記5行追記-->
+      <div class="tag-box">
+        <% @item.tags.each do |tag| %>
+        <span class="tag_label"><%= tag.name %></span>
+        <% end %>
+      </div>
     </div>
+
     <div class = "col-md-4">
       <div class = "card my-3">
         <div class = "card-header">

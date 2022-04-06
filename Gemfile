@@ -77,7 +77,7 @@ gem 'devise-i18n'
 gem 'image_processing'
 # 3/18シンプルカレンダー導入のため追記
 gem "simple_calendar", "~> 2.0"
-# 3/17問い合わせ機能追加のため環境変数の設定
+# 3/17問い合わせ機能追加のため環境変数の設定 4/6AI実装
 gem "dotenv-rails"
 #3/22注文支払い実装のため追記
 gem "enum_help"
